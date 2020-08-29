@@ -15,6 +15,9 @@
 		F6C83E2E2503F835007D745F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F6C83E2C2503F835007D745F /* LaunchScreen.storyboard */; };
 		F6C83E392503F835007D745F /* FairyTaleCollageBuilderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6C83E382503F835007D745F /* FairyTaleCollageBuilderTests.swift */; };
 		F6C83E442503F835007D745F /* FairyTaleCollageBuilderUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6C83E432503F835007D745F /* FairyTaleCollageBuilderUITests.swift */; };
+		F6C83E522503F835007D745F /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6C83E512503F835007D745F /* ImagePicker.swift */; };
+		F6C83E572503F835007D745F /* DraggableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6C83E562503F835007D745F /* DraggableView.swift */; };
+		F6C83E592503F835007D745F /* View+Draggable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6C83E582503F835007D745F /* View+Draggable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +52,9 @@
 		F6C83E3F2503F835007D745F /* FairyTaleCollageBuilderUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FairyTaleCollageBuilderUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F6C83E432503F835007D745F /* FairyTaleCollageBuilderUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FairyTaleCollageBuilderUITests.swift; sourceTree = "<group>"; };
 		F6C83E452503F835007D745F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F6C83E512503F835007D745F /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
+		F6C83E562503F835007D745F /* DraggableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DraggableView.swift; sourceTree = "<group>"; };
+		F6C83E582503F835007D745F /* View+Draggable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Draggable.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,8 +105,10 @@
 		F6C83E202503F835007D745F /* FairyTaleCollageBuilder */ = {
 			isa = PBXGroup;
 			children = (
+				F6C83E552503F835007D745F /* Draggable */,
 				F6C83E212503F835007D745F /* AppDelegate.swift */,
 				F6C83E232503F835007D745F /* SceneDelegate.swift */,
+				F6C83E512503F835007D745F /* ImagePicker.swift */,
 				F6C83E252503F835007D745F /* ContentView.swift */,
 				F6C83E272503F835007D745F /* Assets.xcassets */,
 				F6C83E2C2503F835007D745F /* LaunchScreen.storyboard */,
@@ -134,6 +142,15 @@
 				F6C83E452503F835007D745F /* Info.plist */,
 			);
 			path = FairyTaleCollageBuilderUITests;
+			sourceTree = "<group>";
+		};
+		F6C83E552503F835007D745F /* Draggable */ = {
+			isa = PBXGroup;
+			children = (
+				F6C83E562503F835007D745F /* DraggableView.swift */,
+				F6C83E582503F835007D745F /* View+Draggable.swift */,
+			);
+			path = Draggable;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -267,7 +284,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F6C83E592503F835007D745F /* View+Draggable.swift in Sources */,
+				F6C83E572503F835007D745F /* DraggableView.swift in Sources */,
 				F6C83E222503F835007D745F /* AppDelegate.swift in Sources */,
+				F6C83E522503F835007D745F /* ImagePicker.swift in Sources */,
 				F6C83E242503F835007D745F /* SceneDelegate.swift in Sources */,
 				F6C83E262503F835007D745F /* ContentView.swift in Sources */,
 			);
