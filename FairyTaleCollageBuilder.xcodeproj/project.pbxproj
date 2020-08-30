@@ -18,6 +18,10 @@
 		F6C83E522503F835007D745F /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6C83E512503F835007D745F /* ImagePicker.swift */; };
 		F6C83E572503F835007D745F /* DraggableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6C83E562503F835007D745F /* DraggableView.swift */; };
 		F6C83E592503F835007D745F /* View+Draggable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6C83E582503F835007D745F /* View+Draggable.swift */; };
+		F6C83E5D2503F835007D745F /* AsyncImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6C83E5C2503F835007D745F /* AsyncImage.swift */; };
+		F6C83E5F2503F835007D745F /* EnvironmentValues+ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6C83E5E2503F835007D745F /* EnvironmentValues+ImageCache.swift */; };
+		F6C83E612503F835007D745F /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6C83E602503F835007D745F /* ImageLoader.swift */; };
+		F6C83E632503F835007D745F /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6C83E622503F835007D745F /* ImageCache.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +59,10 @@
 		F6C83E512503F835007D745F /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		F6C83E562503F835007D745F /* DraggableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DraggableView.swift; sourceTree = "<group>"; };
 		F6C83E582503F835007D745F /* View+Draggable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Draggable.swift"; sourceTree = "<group>"; };
+		F6C83E5C2503F835007D745F /* AsyncImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncImage.swift; sourceTree = "<group>"; };
+		F6C83E5E2503F835007D745F /* EnvironmentValues+ImageCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EnvironmentValues+ImageCache.swift"; sourceTree = "<group>"; };
+		F6C83E602503F835007D745F /* ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
+		F6C83E622503F835007D745F /* ImageCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCache.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +113,7 @@
 		F6C83E202503F835007D745F /* FairyTaleCollageBuilder */ = {
 			isa = PBXGroup;
 			children = (
+				F6C83E5B2503F835007D745F /* AsyncImage */,
 				F6C83E552503F835007D745F /* Draggable */,
 				F6C83E212503F835007D745F /* AppDelegate.swift */,
 				F6C83E232503F835007D745F /* SceneDelegate.swift */,
@@ -151,6 +160,17 @@
 				F6C83E582503F835007D745F /* View+Draggable.swift */,
 			);
 			path = Draggable;
+			sourceTree = "<group>";
+		};
+		F6C83E5B2503F835007D745F /* AsyncImage */ = {
+			isa = PBXGroup;
+			children = (
+				F6C83E5C2503F835007D745F /* AsyncImage.swift */,
+				F6C83E5E2503F835007D745F /* EnvironmentValues+ImageCache.swift */,
+				F6C83E622503F835007D745F /* ImageCache.swift */,
+				F6C83E602503F835007D745F /* ImageLoader.swift */,
+			);
+			path = AsyncImage;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -284,9 +304,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F6C83E632503F835007D745F /* ImageCache.swift in Sources */,
+				F6C83E5D2503F835007D745F /* AsyncImage.swift in Sources */,
 				F6C83E592503F835007D745F /* View+Draggable.swift in Sources */,
 				F6C83E572503F835007D745F /* DraggableView.swift in Sources */,
 				F6C83E222503F835007D745F /* AppDelegate.swift in Sources */,
+				F6C83E5F2503F835007D745F /* EnvironmentValues+ImageCache.swift in Sources */,
+				F6C83E612503F835007D745F /* ImageLoader.swift in Sources */,
 				F6C83E522503F835007D745F /* ImagePicker.swift in Sources */,
 				F6C83E242503F835007D745F /* SceneDelegate.swift in Sources */,
 				F6C83E262503F835007D745F /* ContentView.swift in Sources */,

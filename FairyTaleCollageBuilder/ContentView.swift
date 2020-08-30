@@ -9,11 +9,43 @@
 import SwiftUI
 
 struct ContentView: View {
+    @Environment(\.imageCache) var cache: ImageCache
     @State private var isShowPhotoLibrary = false
     @State private var images = Array<UIImage>()
+    @State private var imageUrls = Array<String>()
+    @State private var url: String = ""
 
+    func addImage() {
+        self.imageUrls.append(self.url)
+        self.url = ""
+    }
+    
     var body: some View {
+        let lightGreyColor = Color(red: 239.0/255.0, green: 243.0/255.0, blue: 244.0/255.0, opacity: 1.0)
+
         return VStack {
+            HStack {
+                TextField("Image URL", text: $url)
+                .keyboardType(.URL)
+                .padding()
+                .background(lightGreyColor)
+                .cornerRadius(5.0)
+
+                Button(action: {
+                    self.addImage()
+                }) {
+                    HStack {
+                        Image(systemName: "plus")
+                            .font(.system(size: 20))
+                    }
+                    .frame(minWidth: 0, maxWidth: 50, minHeight: 0, maxHeight: 50)
+                    .background(Color.blue)
+                    .foregroundColor(.white)
+                    .cornerRadius(30)
+                }
+            }
+            .padding(.horizontal)
+            
             Button(action: {
                 self.isShowPhotoLibrary = true
             }) {
@@ -37,6 +69,16 @@ struct ContentView: View {
                         .draggable()
                         .frame(minWidth: 0, maxWidth: 200, minHeight: 0, maxHeight: 200)
 
+                }
+                ForEach(imageUrls, id: \.self) {
+                    AsyncImage(
+                       urlString: $0,
+                       cache: self.cache,
+                       placeholder: Text("Loading ..."),
+                       configuration: { $0.resizable() }
+                    )
+                    .frame(minWidth: 0, maxWidth: 200, minHeight: 0, maxHeight: 200)
+                        .draggable()
                 }
             }
             Spacer()
