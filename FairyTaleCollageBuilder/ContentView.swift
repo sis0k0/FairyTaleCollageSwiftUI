@@ -139,7 +139,7 @@ struct ContentView: View {
                 Image(uiImage: $0)
                     .resizable()
                     .draggable()
-                    .frame(minWidth: 0, maxWidth: 200, minHeight: 0, maxHeight: 200)
+                    .frame(minWidth: 0, maxWidth: .infinity)
 
             }
             ForEach(imageUrls, id: \.self) {
