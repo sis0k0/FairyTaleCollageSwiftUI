@@ -30,34 +30,7 @@ struct ContentView: View {
     var body: some View {
         let lightGreyColor = Color(red: 239.0/255.0, green: 243.0/255.0, blue: 244.0/255.0, opacity: 1.0)
 
-        let scene = VStack {
-            ForEach(images, id: \.self) {
-                Image(uiImage: $0)
-                    .resizable()
-                    .draggable()
-                    .frame(minWidth: 0, maxWidth: 200, minHeight: 0, maxHeight: 200)
-
-            }
-            ForEach(imageUrls, id: \.self) {
-                AsyncImage(
-                   urlString: $0,
-                   cache: self.cache,
-                   placeholder: Text("Loading ..."),
-                   configuration: { $0.resizable() }
-                )
-                .frame(minWidth: 0, maxWidth: 200, minHeight: 0, maxHeight: 200)
-                    .draggable()
-            }
-            ForEach(texts, id: \.self) {
-                Text($0)
-                    .draggable()
-                    .foregroundColor(Color.yellow)
-                    .font(.system(size: 30))
-                
-            }
-        }
-        
-        return VStack {
+        let sceneModifiers = VStack {
             Button(action: {
                 self.isShowPhotoLibrary = true
             }) {
@@ -117,6 +90,37 @@ struct ContentView: View {
                 }
             }
             .padding(.horizontal)
+        }
+
+        let scene = VStack {
+            ForEach(images, id: \.self) {
+                Image(uiImage: $0)
+                    .resizable()
+                    .draggable()
+                    .frame(minWidth: 0, maxWidth: 200, minHeight: 0, maxHeight: 200)
+
+            }
+            ForEach(imageUrls, id: \.self) {
+                AsyncImage(
+                   urlString: $0,
+                   cache: self.cache,
+                   placeholder: Text("Loading ..."),
+                   configuration: { $0.resizable() }
+                )
+                .frame(minWidth: 0, maxWidth: 200, minHeight: 0, maxHeight: 200)
+                    .draggable()
+            }
+            ForEach(texts, id: \.self) {
+                Text($0)
+                    .draggable()
+                    .foregroundColor(Color.yellow)
+                    .font(.system(size: 30))
+                
+            }
+        }
+        
+        return VStack {
+            sceneModifiers
             scene
             Spacer()
         }
