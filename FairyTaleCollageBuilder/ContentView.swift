@@ -134,7 +134,7 @@ struct ContentView: View {
             .padding(.horizontal)
         }
 
-        let scene = VStack {
+        let scene = ZStack {
             ForEach(images, id: \.self) {
                 Image(uiImage: $0)
                     .resizable()
