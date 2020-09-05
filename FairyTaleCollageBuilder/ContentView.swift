@@ -26,26 +26,68 @@ struct ContentView: View {
         self.texts.append(self.text)
         self.text = ""
     }
+
+    public func exportScene() -> UIImage? {
+        var screenshotImage :UIImage?
+        let layer = UIApplication.shared.keyWindow!.layer
+        let scale = UIScreen.main.scale
+        UIGraphicsBeginImageContextWithOptions(layer.frame.size, false, scale);
+        guard let context = UIGraphicsGetCurrentContext() else {return nil}
+        layer.render(in:context)
+        screenshotImage = UIGraphicsGetImageFromCurrentImageContext()
+        
+        let width = screenshotImage!.size.width * scale
+        let height = screenshotImage!.size.height * scale
+        let rect = CGRect(x: 0, y: 450, width: width, height: height)
+        let croppedImage = cropImage(image: screenshotImage!, toRect: rect)
+        
+        
+        UIGraphicsEndImageContext()
+        UIImageWriteToSavedPhotosAlbum(croppedImage, nil, nil, nil)
+
+        return screenshotImage
+    }
+    
+    func cropImage(image:UIImage, toRect rect:CGRect) -> UIImage{
+        let imageRef:CGImage = image.cgImage!.cropping(to: rect)!
+        let croppedImage:UIImage = UIImage(cgImage:imageRef)
+        return croppedImage
+    }
     
     var body: some View {
         let lightGreyColor = Color(red: 239.0/255.0, green: 243.0/255.0, blue: 244.0/255.0, opacity: 1.0)
 
         let sceneModifiers = VStack {
-            Button(action: {
-                self.isShowPhotoLibrary = true
-            }) {
-                HStack {
-                    Image(systemName: "photo")
-                        .font(.system(size: 20))
-                        
-                    Text("Photo Library")
-                        .font(.headline)
+            HStack {
+                Button(action: {
+                    self.isShowPhotoLibrary = true
+                }) {
+                    HStack {
+                        Image(systemName: "photo")
+                            .font(.system(size: 20))
+                            
+                        Text("Photo Library")
+                            .font(.headline)
+                    }
+                    .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: 50)
+                    .background(Color.blue)
+                    .foregroundColor(.white)
+                    .cornerRadius(30)
+                    .padding(.horizontal)
                 }
-                .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: 50)
-                .background(Color.blue)
-                .foregroundColor(.white)
-                .cornerRadius(30)
-                .padding(.horizontal)
+                Button(action: {
+                    _ = self.exportScene()
+                }) {
+                    HStack {
+                        Image(systemName: "square.and.arrow.down")
+                            .font(.system(size: 20))
+                    }
+                    .frame(minWidth: 0, maxWidth: 50, minHeight: 0, maxHeight: 50)
+                    .background(Color.blue)
+                    .foregroundColor(.white)
+                    .cornerRadius(30)
+                    .padding(.horizontal)
+                }
             }
             
             HStack {
